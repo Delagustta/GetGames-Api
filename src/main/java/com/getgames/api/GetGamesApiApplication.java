@@ -10,7 +10,6 @@ public class GetGamesApiApplication {
 		SpringApplication.run(GetGamesApiApplication.class, args);
 		
 		
-		System.out.println("Olá mundo!");
 	}
 
 }
