@@ -11,20 +11,22 @@ import javax.persistence.Id;
 
 @Entity
 public class Categoria {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String categoria;
 
 	@Embedded
 	private List<Jogo> jogos = new ArrayList<>();
+	
+	public Categoria(Integer id, String categoria, List<Jogo> jogos) {
+		this.id = id;
+		this.categoria = categoria;
+		this.jogos = jogos;
+	}
 
-	
-	
-	
-	
 	public Integer getId() {
 		return id;
 	}
@@ -48,7 +50,5 @@ public class Categoria {
 	public void setJogos(List<Jogo> jogos) {
 		this.jogos = jogos;
 	}
-	
-	
 
 }

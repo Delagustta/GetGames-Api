@@ -9,6 +9,8 @@ public class GetGamesApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GetGamesApiApplication.class, args);
 		
+		System.out.println("VAI TER OLA MUNDO SIM !");
+		
 		
 	}
 

@@ -8,28 +8,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
-
 @Entity
-@Table(name= "Jogo_Categoria")
+@Table(name = "Jogo_Categoria")
 public class JogoCategoria {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@JoinColumn
 	@ManyToOne
 	private Jogo jogo;
-	
+
 	@JoinColumn
 	@ManyToOne
 	private Categoria categoria;
 
-	
-	
-	
-	
 	public Integer getId() {
 		return id;
 	}
@@ -53,7 +47,5 @@ public class JogoCategoria {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
-	
 
 }

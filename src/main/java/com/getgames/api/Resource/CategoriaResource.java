@@ -10,19 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.getgames.api.Entity.Categoria;
 import com.getgames.api.Service.CategoriaService;
 
-
-
 @RestController
 @RequestMapping("/categoria")
 public class CategoriaResource {
-	
+
 	@Autowired
-	private CategoriaService categoriaService;
-	
-	
+	private CategoriaService service;
+
 	@GetMapping
 	public List<Categoria> getAll() {
-		return categoriaService.findAll();
+		return service.findAll();
 	}
 
 }

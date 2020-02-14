@@ -15,31 +15,35 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 public class Jogo {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String titulo;
-	
+
 	private String descricao;
-	
+
 	private Date lancamento;
-	
+
 	private String studio;
-	
+
 	private String foto;
-	
+
 	@JsonManagedReference
 	@Embedded
 	private List<Categoria> categorias = new ArrayList<>();
 
-	
-	
-	
-	
-	
-	
+	public Jogo(Integer id, String titulo, String descricao, Date lancamento, String studio, String foto,
+			List<Categoria> categorias) {
+		this.id = id;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.lancamento = lancamento;
+		this.studio = studio;
+		this.foto = foto;
+		this.categorias = categorias;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -96,8 +100,4 @@ public class Jogo {
 		this.categorias = categorias;
 	}
 
-	
-
-	
-	
 }

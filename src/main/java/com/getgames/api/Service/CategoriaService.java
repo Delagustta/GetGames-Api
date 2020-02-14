@@ -10,14 +10,12 @@ import com.getgames.api.Repository.CategoriaRepository;
 
 @Service
 public class CategoriaService {
-	
-	
-	@Autowired
-	private CategoriaRepository categoriaRepository;
 
-	
+	@Autowired
+	private CategoriaRepository repository;
+
 	public List<Categoria> findAll() {
-		return categoriaRepository.findAll();
+		return repository.findAll();
 	}
-	
+
 }
