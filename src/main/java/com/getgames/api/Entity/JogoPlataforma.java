@@ -9,20 +9,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "jogo_categoria")
-public class JogoCategoria {
-
+@Table(name = "jogo_plataforma")
+public class JogoPlataforma {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
+	
+	@ManyToOne
 	@JoinColumn(name = "jogo_id")
-	@ManyToOne
 	private Jogo jogo;
-
-	@JoinColumn(name = "categoria_id")
+	
 	@ManyToOne
-	private Categoria categoria;
+	@JoinColumn(name = "plataforma_id")
+	private Plataforma plataforma;
+
+	public JogoPlataforma(Integer id, Jogo jogo, Plataforma plataforma) {
+		this.id = id;
+		this.jogo = jogo;
+		this.plataforma = plataforma;
+	}
 
 	public Integer getId() {
 		return id;
@@ -40,12 +46,12 @@ public class JogoCategoria {
 		this.jogo = jogo;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
+	public Plataforma getPlataforma() {
+		return plataforma;
 	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setPlataforma(Plataforma plataforma) {
+		this.plataforma = plataforma;
 	}
 
 }

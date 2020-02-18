@@ -9,10 +9,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
+@Table(name = "jogo")
 public class Jogo {
 
 	@Id
@@ -25,7 +27,7 @@ public class Jogo {
 
 	private Date lancamento;
 
-	private String studio;
+	private String estudio;
 
 	private String foto;
 
@@ -33,13 +35,13 @@ public class Jogo {
 	@Embedded
 	private List<Categoria> categorias = new ArrayList<>();
 
-	public Jogo(Integer id, String titulo, String descricao, Date lancamento, String studio, String foto,
+	public Jogo(Integer id, String titulo, String descricao, Date lancamento, String estudio, String foto,
 			List<Categoria> categorias) {
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.lancamento = lancamento;
-		this.studio = studio;
+		this.estudio = estudio;
 		this.foto = foto;
 		this.categorias = categorias;
 	}
@@ -76,12 +78,12 @@ public class Jogo {
 		this.lancamento = lancamento;
 	}
 
-	public String getStudio() {
-		return studio;
+	public String getEstudio() {
+		return estudio;
 	}
 
-	public void setStudio(String studio) {
-		this.studio = studio;
+	public void setEstudio(String estudio) {
+		this.estudio = estudio;
 	}
 
 	public String getFoto() {

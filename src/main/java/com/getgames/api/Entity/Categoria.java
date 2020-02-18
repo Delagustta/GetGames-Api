@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "categoria")
 public class Categoria {
 
 	@Id
@@ -19,8 +21,8 @@ public class Categoria {
 	private String categoria;
 
 	@Embedded
-	private List<Jogo> jogos = new ArrayList<>();
-	
+	private List<Jogo> jogos = new ArrayList<>();  //ANOTAÇÃO embedded PEDE Q A CLASSE EM QUESTÃO SEJA ANOTADA TAMBEM COM **embeddable**
+
 	public Categoria(Integer id, String categoria, List<Jogo> jogos) {
 		this.id = id;
 		this.categoria = categoria;
