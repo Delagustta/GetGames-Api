@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +25,7 @@ public class Usuario {
 	private Date dataCadastro;
 	private String celular;
 	
+	@OneToOne
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
 

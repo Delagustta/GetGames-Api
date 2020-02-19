@@ -21,12 +21,11 @@ public class Categoria {
 	private String categoria;
 
 	@Embedded
-	private List<Jogo> jogos = new ArrayList<>();  //ANOTAÇÃO embedded PEDE Q A CLASSE EM QUESTÃO SEJA ANOTADA TAMBEM COM **embeddable**
+	private List<Jogo> jogos = new ArrayList<>();
 
-	public Categoria(Integer id, String categoria, List<Jogo> jogos) {
+	public Categoria(Integer id, String categoria) {
 		this.id = id;
 		this.categoria = categoria;
-		this.jogos = jogos;
 	}
 
 	public Integer getId() {

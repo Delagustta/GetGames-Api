@@ -11,7 +11,7 @@ import com.getgames.api.Entity.Categoria;
 import com.getgames.api.Service.CategoriaService;
 
 @RestController
-@RequestMapping("/categoria")
+@RequestMapping(value = "/categoria")
 public class CategoriaResource {
 
 	@Autowired
