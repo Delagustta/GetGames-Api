@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -24,14 +24,17 @@ public class Usuario {
 	private String cpf;
 	private String email;
 	private String senha;
-	
-	@JsonFormat(pattern="yyyy/MM/dd")
+
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dataCadastro;
 	private String celular;
-	
+
 	@OneToOne
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
+	
+	public Usuario() {
+	}
 
 	public Usuario(Integer id, String usuario, String nome, String cpf, String email, String senha, Date dataCadastro,
 			String celular, Endereco endereco) {
@@ -117,6 +120,5 @@ public class Usuario {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
-	
+
 }
