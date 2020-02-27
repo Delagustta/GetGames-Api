@@ -21,7 +21,7 @@ public class Jogo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private String titulo;
+	private String titulo; 
 
 	private String descricao;
 
