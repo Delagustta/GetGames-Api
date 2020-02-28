@@ -1,5 +1,9 @@
 package com.getgames.api.Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,11 +18,17 @@ public class Plataforma {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	
 	private String plataforma;
 	
-	public Plataforma(Integer id, String plataforma) {
+	@Embedded
+	private List<Jogo> jogos = new ArrayList<>();
+
+	public Plataforma(Integer id, String plataforma, List<Jogo> jogos) {
+		super();
 		this.id = id;
 		this.plataforma = plataforma;
+		this.jogos = jogos;
 	}
 
 	public Integer getId() {
@@ -37,4 +47,12 @@ public class Plataforma {
 		this.plataforma = plataforma;
 	}
 
+	public List<Jogo> getJogos() {
+		return jogos;
+	}
+
+	public void setJogos(List<Jogo> jogos) {
+		this.jogos = jogos;
+	}
+	
 }

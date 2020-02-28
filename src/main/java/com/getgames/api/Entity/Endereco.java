@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "endereco")
 public class Endereco {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -18,9 +18,8 @@ public class Endereco {
 	private String cep;
 	private String cidade;
 	private String estado;
-	
-	public Endereco(Integer idEndereco, String rua, String bairro, String cep, String cidade, String estado) {
-		this.id = idEndereco;
+
+	public Endereco(String rua, String bairro, String cep, String cidade, String estado) {
 		this.rua = rua;
 		this.bairro = bairro;
 		this.cep = cep;

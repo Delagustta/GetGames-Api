@@ -2,6 +2,7 @@ package com.getgames.api.Entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,18 +28,18 @@ public class Usuario {
 
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dataCadastro;
+
 	private String celular;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
-	
+
 	public Usuario() {
 	}
 
-	public Usuario(Integer id, String usuario, String nome, String cpf, String email, String senha, Date dataCadastro,
-			String celular, Endereco endereco) {
-		this.id = id;
+	public Usuario(String usuario, String nome, String cpf, String email, String senha, Date dataCadastro,
+			String celular) {
 		this.usuario = usuario;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -46,7 +47,7 @@ public class Usuario {
 		this.senha = senha;
 		this.dataCadastro = dataCadastro;
 		this.celular = celular;
-		this.endereco = endereco;
+
 	}
 
 	public Integer getId() {

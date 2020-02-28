@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -31,12 +32,17 @@ public class Jogo {
 
 	private String foto;
 
-	@JsonManagedReference
+	@JsonIgnore
 	@Embedded
 	private List<Categoria> categorias = new ArrayList<>();
+	
+	@JsonIgnore
+	@Embedded
+	private List<Plataforma> plataformas = new ArrayList<>();
 
 	public Jogo(Integer id, String titulo, String descricao, Date lancamento, String estudio, String foto,
-			List<Categoria> categorias) {
+			List<Categoria> categorias, List<Plataforma> plataformas) {
+		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
@@ -44,6 +50,7 @@ public class Jogo {
 		this.estudio = estudio;
 		this.foto = foto;
 		this.categorias = categorias;
+		this.plataformas = plataformas;
 	}
 
 	public Integer getId() {
@@ -102,4 +109,13 @@ public class Jogo {
 		this.categorias = categorias;
 	}
 
+	public List<Plataforma> getPlataformas() {
+		return plataformas;
+	}
+
+	public void setPlataformas(List<Plataforma> plataformas) {
+		this.plataformas = plataformas;
+	}
+
+	
 }
