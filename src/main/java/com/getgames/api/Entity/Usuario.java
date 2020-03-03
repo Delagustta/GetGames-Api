@@ -38,8 +38,9 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	public Usuario(String usuario, String nome, String cpf, String email, String senha, Date dataCadastro,
-			String celular) {
+	public Usuario(Integer id, String usuario, String nome, String cpf, String email, String senha, Date dataCadastro,
+			String celular, Endereco endereco) {
+		this.id = id;
 		this.usuario = usuario;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -47,7 +48,7 @@ public class Usuario {
 		this.senha = senha;
 		this.dataCadastro = dataCadastro;
 		this.celular = celular;
-
+		this.endereco = endereco;
 	}
 
 	public Integer getId() {
@@ -121,5 +122,5 @@ public class Usuario {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-
+	
 }

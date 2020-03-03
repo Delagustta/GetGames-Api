@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.getgames.api.Dto.UsuarioDTO;
 import com.getgames.api.Entity.Usuario;
 import com.getgames.api.Service.UsuarioService;
 
@@ -24,15 +23,16 @@ public class UsuarioResource {
 	@Autowired
 	private UsuarioService service;
 
-	@PostMapping
-	public ResponseEntity<Usuario> salvar(@RequestBody UsuarioDTO usuario) {
-		Usuario user = service.salvar(usuario);
-		return new ResponseEntity<Usuario>(user, HttpStatus.CREATED);
-	}
-
 	@GetMapping
 	public List<Usuario> listarTodos() {
 		return service.listar();
+	}
+
+	@PostMapping
+	public ResponseEntity<Usuario> salvar(@RequestBody Usuario usuario) {
+		Usuario user = service.salvar(usuario);
+		return new ResponseEntity<Usuario>(user, HttpStatus.CREATED);
+		
 	}
 
 	@PostMapping("/login")
